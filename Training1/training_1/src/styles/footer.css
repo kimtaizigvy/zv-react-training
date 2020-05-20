@@ -1,0 +1,68 @@
+.footer-container {
+    min-height: 60vh;
+    border-top-width: 0.1px;
+    border-top-style: solid;
+    border-top-color: #b5b5b5;
+}
+
+.footer-menu-container {
+    height: 50vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.footer-signature {
+    height: 10vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.footer-menu-card {
+    height: 45vh;
+    width: 40vh;
+    margin-right: 5vh;
+}
+
+.footer-menu-card-title {
+    display: flex;
+    height: 7vh;
+    align-items: center;
+    font-size: medium;
+    font-weight: 600;
+}
+
+.footer-menu-card-content {
+    display: flex;
+    height: 40vh;
+    font-size: medium;
+    line-height: 28px;
+}
+
+.footer-menu {
+    display: flex;
+    flex-direction: column;
+}
+
+.footer-signature-container {
+    height: 10vh;
+    width: 200vh;
+    border-top-style: solid;
+    border-top-width: 0.5px;
+    border-top-color: #b5b5b5;
+    flex-direction: row;
+}
+
+.footer-left {
+    height: 10vh;
+    width: 100vh;
+    text-align: left;
+}
+
+.footer-right {
+    height: 10vh;
+    width: 100vh;
+    text-align: right;
+}

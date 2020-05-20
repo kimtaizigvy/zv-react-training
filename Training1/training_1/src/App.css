@@ -1,0 +1,61 @@
+.App-logo {
+  height: 13vmin;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100vh;
+}
+
+.header-menu {
+  width: 150vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 13vmin;
+}
+
+.menu {
+  display: flex;
+  flex-direction: row;
+  height:13vh;
+  width: 100vh;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.menu-item {
+  height: 12vh;
+  width: 20vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 13px;
+  font-weight: 600;
+  color: #7a7a7a;
+}
+
+.App-header {
+  background-color: #ffffff;
+  min-height: 5vh;
+  display: flex;
+  flex-direction: row;
+  border-top-width: 0vh;
+  border-left-width: 0vh;
+  border-right-width: 0vh;
+  border-bottom-width: 0.3vh;
+  border-bottom-color:#d4d4d4;
+  border-style: solid;
+}
+
+.App-slider {
+  min-height: 100vh;
+}
+
+.App-body {
+  min-height: 1000vh;
+}
+
+.App-footer {
+  min-height: 70vh;
+  background-color: black;
+}

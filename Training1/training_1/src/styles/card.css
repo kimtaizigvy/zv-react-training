@@ -1,0 +1,59 @@
+.card-list-container {
+    min-height: 75vh;
+    margin-bottom: 5vh;
+}
+
+.label-wrapper {
+    min-height: 5vh;
+    justify-content: center;
+    margin-left: 7vh;
+}
+
+.card-list-wrapper {
+    min-height: 70vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.card-container {
+    min-height: 65vh;
+    width: 220vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.card-item-container {
+    height: 65vh;
+    width: 40vh;
+    margin-left: 2vh;
+}
+
+.card-item-image {
+    height: 40vh;
+    width: 40vh;
+    border-radius: 2vh;
+}
+
+.card-item-info {
+    height: 25vh;
+    width: 40vh;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    flex-direction: column;
+}
+
+.item-title {
+    text-align: left;
+    font-weight: 700;
+    margin-bottom: -5px;
+}
+
+.item-content {
+    text-align: left;
+    margin-bottom: -10px;
+}

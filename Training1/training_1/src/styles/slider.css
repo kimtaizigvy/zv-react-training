@@ -1,0 +1,32 @@
+.slider {
+    min-height: 70vh;
+    margin-bottom: 1vh;
+}
+
+.slider-image {
+    display: inline-block;
+}
+
+.slider-content-wrapper {
+    position: absolute;
+    top: 20vh;
+    left: 10vh;
+    width: 44vh;
+}
+
+.slider-intro {
+    color: #ffffff;
+    font-size: 16px;
+    margin-bottom: -40px;
+}
+
+.slider-title {
+    font-size: 40px;
+    color: #ffffff;
+    margin-bottom: -10px;
+}
+
+.slider-content {
+    color: #ffffff;
+    font-size: 20px;
+}
