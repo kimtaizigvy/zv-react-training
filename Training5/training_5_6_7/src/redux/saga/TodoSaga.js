@@ -1,6 +1,7 @@
 import {
     takeEvery,
-    put
+    put,
+    call,
 } from 'redux-saga/effects';
 import axios from 'axios'
 
@@ -11,10 +12,12 @@ import { BASE_URL } from '../../utils/Config'
 
 function* getTodoList() {
     try {
-        const todoList = yield axios.get(BASE_URL).then(result => result.data)
+        const result = yield call(axios.get, BASE_URL);
+        const { data } = result;
+
         yield put({
             type: SAGA_NAMES.SAGA_GET_LIST_TODO_SUCCESS,
-            data: { todoList: todoList }
+            data: { todoList: data }
         })
     } catch (err) {
         yield put({
@@ -30,18 +33,14 @@ export function* getTodoListWatcher() {
 
 function* addTodo(action) {
     try {
-        const todo = yield axios.post(
-            BASE_URL,
-            {
-                "name": action.data.todoContent,
-                "completed": false
-            }
-        ).then(result => result.data)
+        const addTodoResult = yield call(axios.post, BASE_URL, {
+            "name": action.data.todoContent,
+            "completed": false
+        })
         yield put({
             type: SAGA_NAMES.SAGA_ADD_TODO_SUCCESS,
-            data: { todo: todo }
+            data: { todo: addTodoResult.data }
         })
-
     } catch (err) {
         yield put({
             type: SAGA_NAMES.SAGA_ADD_TODO_FAILED
@@ -56,9 +55,7 @@ export function* addTodoWatcher() {
 
 function* deleteTodo(action) {
     try {
-        yield axios.delete(
-            BASE_URL + action.data.todoId,
-        ).then(result => result.data)
+        yield call(axios.delete, BASE_URL + action.data.todoId)
         yield put({
             type: SAGA_NAMES.SAGA_REMOVE_TODO_SUCCESS,
             data: { todoId: action.data.todoId }
@@ -77,15 +74,10 @@ export function* deleteTodoWatcher() {
 
 function* toggleTodo(action) {
     try {
-        const editedTodo = yield axios.put(
-            BASE_URL + action.data.todoId,
-            {
-                completed: action.data.toggleStatus
-            }
-        ).then(result => result.data)
+        const toggleResult = yield call(axios.put, BASE_URL + action.data.todoId, { completed: action.data.toggleStatus })
         yield put({
             type: SAGA_NAMES.SAGA_TOGGLE_TODO_SUCCESS,
-            data: { todoId: editedTodo.id, completed: editedTodo.completed }
+            data: { todoId: toggleResult.data.id, completed: toggleResult.data.completed }
         })
     } catch (err) {
         yield put({

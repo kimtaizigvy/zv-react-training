@@ -1,5 +1,4 @@
 import React from 'react';
-import './App.css';
 import { Provider } from 'react-redux';
 import 'antd/dist/antd.css';
 import { PersistGate } from 'redux-persist/integration/react'
@@ -12,7 +11,7 @@ function App() {
   return (
     <Provider store={store}>
       <PersistGate loading={null} persistor={persistor}>
-        <div className="App">
+        <div style={{ height: 1000, backgroundColor: "#282c34", alignItems: 'center' }}>
           <ToDoPage />
         </div>
       </PersistGate>

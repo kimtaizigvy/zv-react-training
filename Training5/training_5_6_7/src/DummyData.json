@@ -1,26 +1,26 @@
 [
     {
         "id": 1,
-        "content": "Research"
+        "name": "Research"
     },
     {
         "id": 2,
-        "content": "Research"
+        "name": "Research"
     },
     {
         "id": 3,
-        "content": "Research"
+        "name": "Research"
     },
     {
         "id": 4,
-        "content": "Research"
+        "name": "Research"
     },
     {
         "id": 5,
-        "content": "Research"
+        "name": "Research"
     },
     {
         "id": 6,
-        "content": "Research"
+        "name": "Research"
     }
 ]
