@@ -18,6 +18,7 @@ function MainPage() {
     let { path } = useRouteMatch();
     let { push } = useHistory()
     const [myInfo, setMyInfo] = useState({})
+
     useEffect(() => {
         userSerives.getMyInfo(
             getInfoSuccess => {
@@ -29,6 +30,7 @@ function MainPage() {
             },
             getInfoFailed => {
                 ls.clear()
+                alert('Token expired')
                 push('/authenticate')
             }
         )
@@ -46,8 +48,9 @@ function MainPage() {
                         <MyInfo />
                     </Route>
                     <Route path={`${path}/users`}>
-                        {myInfo.role === 'Admin' ? (<Users />) : (<Redirect to="/main" />)}
+                        {myInfo.role === 'Admin' ? (<Users />) : (<Redirect to={path} />)}
                     </Route>
+                    <Redirect to={path} />
                 </Switch>
             </div>
         );

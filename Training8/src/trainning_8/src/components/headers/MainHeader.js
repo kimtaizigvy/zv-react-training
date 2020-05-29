@@ -12,7 +12,12 @@ function MainHeader({ myInfo }) {
 
     return (
         <header style={{ backgroundColor: '#282c34', height: 45, alignItems: 'center', display: 'flex', borderBottom: "0.5px solid gray" }}>
-            <p style={{ flex: 0.72, marginLeft: 20, color: '#ffff' }}>Welcome {myInfo.displayName}</p>
+            <a
+                style={{ flex: 0.72, marginLeft: 20, color: '#ffff', textDecoration: 'none' }}
+                onClick={() => { push('/main') }}
+            >
+                Welcome {myInfo.displayName}
+            </a>
             <ul style={{ flex: 0.23, display: 'flex', flexDirection: 'row', justifyContent: 'space-between', listStyle: 'none' }}>
                 <li>
                     <a

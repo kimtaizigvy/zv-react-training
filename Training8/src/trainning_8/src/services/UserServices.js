@@ -22,6 +22,7 @@ export default class UserServices {
             }
             success(user)
         }).catch(err => {
+            console.log('err', err)
             failed('Token expired')
         })
     }
@@ -38,7 +39,6 @@ export default class UserServices {
             `${BASE_URL}/api/users`,
             config
         ).then(result => {
-            console.log('res', result.data.users)
             success(result.data.users)
         }).catch(err => {
             console.log('err', err)

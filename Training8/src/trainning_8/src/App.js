@@ -4,6 +4,7 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
+  Redirect,
 } from "react-router-dom";
 import AuthenPage from './modules/authen/AuthenPage';
 import MainPage from './modules/main/MainPage';
@@ -18,6 +19,7 @@ function App() {
         <Route path="/main">
           <MainPage />
         </Route>
+        <Redirect to={'/authenticate'} />
       </Switch>
     </Router>
     

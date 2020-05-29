@@ -4,18 +4,18 @@ import {
     Route,
     useRouteMatch,
     useHistory,
-    useParams
+    useLocation
 } from "react-router-dom";
+import ls from 'local-storage'
 import UserInfo from './UserInfo'
 import UserServices from '../../services/UserServices'
 const userServices = new UserServices();
 
 function Users() {
     const [usersList, setUsersList] = useState([]);
-    let { path, url } = useRouteMatch();
+    let { path } = useRouteMatch();
     let { push } = useHistory()
-
-    console.log('hoho', url.split('users'))
+    let { pathname } = useLocation()
 
     useEffect(() => {
         userServices.getUsers(
@@ -23,7 +23,9 @@ function Users() {
                 setUsersList(getUserListSuccess)
             },
             getUserListFailed => {
-                alert('Get user list failed')
+                ls.clear()
+                alert('Token expired')
+                push('/authenticate')
             }
         )
     }, [])
@@ -37,9 +39,13 @@ function Users() {
                             usersList.length > 0
                                 ? usersList.map(user => {
                                     return (
-                                        <li style={{ marginTop: 5 }} key={user.id}>
+                                        <li style={{ marginTop: 15 }} key={user.id}>
                                             <a
-                                                style={{ textDecoration: 'none', color: 'black' }}
+                                                style={{ 
+                                                    textDecoration: 'none', 
+                                                    color: pathname.split('/')[3] === user.id ? 'black' : '#454544', 
+                                                    fontWeight: pathname.split('/')[3] === user.id ? '700' : '400'
+                                                }}
                                                 onClick={() => { push(`${path}/${user.id}`) }}
                                             >
                                                 {user.fullName}
@@ -56,7 +62,6 @@ function Users() {
                             {
                                 usersList.length > 0 ? (<UserInfo usersList={usersList} />) : null
                             }
-
                         </Route>
                     </Switch>
                 </div>

@@ -5,20 +5,20 @@ import {
     Switch,
     Route,
     useRouteMatch,
-    useHistory
+    useHistory,
+    Redirect
 } from "react-router-dom";
 import ls from 'local-storage'
 import Signup from './Signup';
 
 function AuthenPage() {
     let { path } = useRouteMatch();
-    let { push } = useHistory()
 
-    useEffect(()=>{
-        if(!!ls.get('TOKEN')){
-            push('/main')
-        }
-    })
+    if(!!ls.get('TOKEN')){ 
+        return (
+            <Redirect to={'/main'} />
+        )
+    }
 
     return (
         <div>
